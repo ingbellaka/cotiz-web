@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head><title>Cotizador LACCY</title></head>
+<body>
+<h1>Cotización LACCY</h1>
+<form method="POST" action="/cotizar">
+    Cliente: <input name="cliente" required><br><br>
+    Anticipo (%): <input name="anticipo" type="number" value="0"><br><br>
+    {% for producto in productos.itertuples() %}
+        <div>
+            <strong>{{ producto.Nombre }}</strong><br>
+            {{ producto.Descripción }}<br>
+            Precio: ${{ producto.Precio }}<br>
+            Cantidad: <input name="cantidad" type="number" step="1" value="0">
+            <input type="hidden" name="producto" value="{{ producto.Nombre }}">
+        </div><hr>
+    {% endfor %}
+    <button type="submit">Generar Cotización</button>
+</form>
+<a href="/agregar">Agregar nuevo producto</a>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul>{% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}</ul>
+  {% endif %}
+{% endwith %}
+</body>
+</html>
