@@ -103,17 +103,16 @@ def generar_pdf(cliente, items, anticipo_pct):
     c.setFont("Helvetica", 10)
     c.drawString(40, y, "1. Estos precios son más I.V.A.")
     y -= 15
-    c.drawString(40, y, "2. Tiempo de entrega: 30 días hábiles a partir del anticipo.")
+    c.drawString(40, y, "2. Tiempo de entrega: 30-45 días hábiles a partir del anticipo.")
     y -= 15
     c.drawString(40, y, "3. Precio sujeto a cambio sin previo aviso.")
-    y -= 15
-    c.drawString(40, y, "4. Garantía: 6 meses contra defectos de fabricación.")
+  
     
     # Pie de página
     y -= 40
     c.setFont("Helvetica", 9)
     c.drawCentredString(width/2, y, "¡Gracias por su preferencia!")
-    c.drawCentredString(width/2, y-15, "www.fabricanteslaccy.com")
+    c.drawCentredString(width/2, y-15, "Fabricantes LACCY")
 
     c.save()
     return filename
