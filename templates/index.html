@@ -8,11 +8,17 @@
         body { background-color: #f8f9fa; }
         .container { max-width: 800px; margin-top: 40px; }
         .table td, .table th { vertical-align: middle; }
+        .btn-admin { margin: 10px 0; }
     </style>
 </head>
 <body>
 <div class="container">
     <h2 class="text-center mb-4">Cotizador LACCY</h2>
+
+    <div class="d-flex justify-content-between mb-3">
+        <a href="/agregar" class="btn btn-primary">Agregar Producto</a>
+        <a href="/productos" class="btn btn-info">Administrar Productos</a>
+    </div>
 
     <form id="form-cotizacion" method="POST" action="/cotizar">
         <div class="mb-3">
@@ -52,9 +58,14 @@
             <tbody></tbody>
         </table>
 
-        <input type="hidden" name="anticipo" value="60">
+        <div class="mb-3">
+            <label for="anticipo" class="form-label">Porcentaje de Anticipo</label>
+            <input type="number" class="form-control" id="anticipo" name="anticipo" min="0" max="100" value="60" required>
+            <div class="form-text">Ingrese el porcentaje de anticipo (0-100)</div>
+        </div>
+
         <div class="d-grid">
-            <button type="submit" class="btn btn-success">Generar Cotización PDF</button>
+            <button type="submit" class="btn btn-success btn-lg">Generar Cotización PDF</button>
         </div>
     </form>
 </div>
